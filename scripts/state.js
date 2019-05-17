@@ -58,3 +58,15 @@ class Clock extends React.Component {
 }
 
 ReactDOM.render(<Clock />, document.getElementById("app"));
+
+
+// We can use Clock pomponent anywhere since it has its own state.
+const App = () => {
+  return (
+    <div>
+      <Clock />
+      <Clock />
+      <Clock />
+    </div>
+  );
+};
