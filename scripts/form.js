@@ -1,4 +1,7 @@
-class NameForm extends Component {
+import React from "react";
+import ReactDOM from "react-dom";
+
+class NameForm extends React.Component {
   state = {
     value: ""
   }
@@ -67,3 +70,5 @@ class Reservation extends React.Component {
     );
   }
 }
+
+ReactDOM.render(<Reservation />, document.getElementbyId("app"));
