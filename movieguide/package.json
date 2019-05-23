@@ -1,0 +1,16 @@
+{
+  "name": "movie-guide",
+  "version": "1.0.0",
+  "description": "React application - movie guide",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch",
+    "build": "cross-env NODE_ENV=production webpack -p",
+    "start": "cross-env NODE_env=development webpack-dev-server -d"
+  },
+  "keywords": [],
+  "author": "Nematjon Abdulloev",
+  "license": "ISC"
+}
+
