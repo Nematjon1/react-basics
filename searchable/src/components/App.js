@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import SearchBar from "../SearchBar";
-import ProductTable from "./ProductTable/ProductTable";
+import SearchBar from "./components/SearchBar";
+import ProductTable from "./components/ProductTable";
 import './App.css';
 
 class App extends Component {
