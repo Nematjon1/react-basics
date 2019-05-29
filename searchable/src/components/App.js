@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import SearchBar from "./SearchBar/SearchBar";
+import SearchBar from "../SearchBar";
 import ProductTable from "./ProductTable/ProductTable";
 import './App.css';
 
