@@ -77,3 +77,51 @@ const memoizedCallback = useCallback(() => {
 
 // useMemo implementation.
 const memoizedValue = useMemo(() => computeExpensiveValur(a, b), [a,b]);
+
+// useRef implementation.
+const refContainer = useRef(initialValue);
+
+function TextInputWithFocusButton() {
+  const inputE1 = useRef(null);
+  const onButtonClick = () => {
+    // `currnet` points to the mounted text input element
+    inputE1.current.focus();
+  };
+  return (
+    <>
+      <input ref={inputE1} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  );
+}
+
+// useImperativeHandle implementataion
+useImperativeHandle(ref, createHandle, [deps]);
+
+fnction FancyInput(props, ref) {
+  const inputRef = useRef();
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    }
+  }));
+  return <input ref={inputRef} ... />;
+}
+FancyInput = forwardRef(FancyInput);
+
+// useLayoutEffect
+// use useEffect if possible, useLayoutEffect similar.
+
+// useDebugValue
+useDebugValue(value);
+
+function useFriendStatus(friendID) {
+  const [isOnline, setIsOnline] = useState(null);
+  // Show a label in DevTools next to this Hook
+  // e.g. "FriendStatus: Online"
+  useDebugValue(isOnline ? "Onilne" : "Offline");
+
+  return isOnline;
+}
+
+useDebugValue(date, date => date.toDateString());
