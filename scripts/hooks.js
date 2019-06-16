@@ -261,3 +261,22 @@ function Todos() {
     dispatch({type: "add", text});
   }
 }
+
+// Utilizing function inside useEffect hook
+function ProductPage({productID}) {
+  const [product, setProduct] = useState(null);
+  useEffect(() => {
+    // By moving this function inside the effect, we can clearly see
+    // the values it uses.
+    let ignore = false;
+    async function fetchProduct() {
+      const response = await fetch("http://myapi/product" + productID);
+      const json = await response.json();
+      if (!ignore) setProduct(json);
+    }
+    return () => {ignore = true};
+  }, [productID]); //Valid because our effect only uses productID
+
+  // ....
+}
+
