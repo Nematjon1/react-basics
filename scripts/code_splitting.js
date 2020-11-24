@@ -11,7 +11,7 @@ export function add(a,b){
 function add(a,b) {
   return a = b;
 }
-console.log(ad(4,6));
+console.log(add(4,6));
 
 // Dynamic import syntax
 import("./math")
