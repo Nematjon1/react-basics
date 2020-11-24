@@ -1,5 +1,8 @@
 import React, {Component} from "react";
-
+/**
+  * Returns JSX element
+  * @param celsius React Props
+**/
 const BoilingVerdict = (props) => {
   if(props.celsius >= 100) {
     return <p>The water would boil.</p>
@@ -7,6 +10,11 @@ const BoilingVerdict = (props) => {
 
   return <p>The water would not boil.</p>
 };
+
+/**
+  * Calculates Fahrenheit or Celsius values
+  * Displays JSX markup
+**/
 
 class Calculator extends Component {
   state = {
@@ -80,6 +88,11 @@ const toFahrenheit = (celsius) => {
   return (celsius * 9 / 5) + 32;
 };
 
+/**
+  * Checks input and returns either empty string or converted value
+  * @param: temperature String
+  * @param: convert Function
+**/
 const tryConvert = (temperature, convert) => {
   const input = parseFloat(temperature);
 
