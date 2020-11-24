@@ -36,11 +36,11 @@ class Calculator extends Component {
     const fahrenheit = scale === "c" ? tryConvert(temperature, toFahrenheit) : temperature;
 
     return (
-      <Temperature
+      <TemperatureInput
         scale="c"
         onTemperatureChange={this.handleCelsiusChange}
         temperature={celsius} />
-      <Temperature
+      <TemperatureInput
         onTemperatureChange={this.handleFahrenheitChange}
         scale="f"
         temperature={fahrenheit} />
@@ -50,35 +50,33 @@ class Calculator extends Component {
   }
 }
 
-class TemperatureInput extends Component {
+/**
+ * Map celsius and fahrenheit values
+**/
+const scaleNames = {
+  c: 'Celsius',
+  f: 'Fahrenheit'
+};
 
-  handleChange = (event) => {
-    // this.setState({temperature: event.target.value});
-    this.props.onTemperatureChange(e.target.value);
-  }
+const TemperatureInput = (props) => {
 
-  render() {
-    const temperature = this.props.temperature;
-    const scale = this.props.scale;
+  const handleChange = (event) => {
+    props.onTemperatureChange(e.target.value);
+  };
 
-    return (
-      <fieldset>
-        <legend>Enter temperature in {scaleNames[scale]}:</legend>
-        <input
-          value={temperature}
-          onChange={this.handleChange}
-        />
-      </fieldset>
-    );
-  }
-}
+  const temperature = props.temperature;
+  const scale = props.scale;
 
-const Calculator = (props) => (
-  <div>
-    <Temperature scale="c" />
-    <Temperature scale="f" />
-  </div>
-);
+  return (
+    <fieldset>
+      <legend>Enter temperature in {scaleNames[scale]}:</legend>
+      <input
+        value={temperature}
+        onChange={handleChange}
+      />
+    </fieldset>
+  );
+};
 
 const toCelsius = (fahrenheit) => {
   return (fahrenheit - 32) * 5 / 9;
